@@ -1,0 +1,7 @@
+before_script:
+  - apt-get update
+  - apt-get install maven openjdk-8-jre
+
+maven:
+  script:
+    - test/run.sh
