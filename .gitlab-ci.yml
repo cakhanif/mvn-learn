@@ -3,5 +3,12 @@ before_script:
   - apt-get install maven openjdk-8-jre -y
 
 maven:
+  stage: test
   script:
     - test/run.sh
+  
+
+mvn:
+  stage: production
+  script:
+    - java -jar complete/gs-maven-0.1.0.jar
