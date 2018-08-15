@@ -7,7 +7,10 @@ maven:
   script:
     - test/run.sh
   
-
+before_script:
+  - apt-get update
+  - apt-get install maven openjdk-8-jre -y
+  
 mvn:
   stage: deploy
   before_script:
