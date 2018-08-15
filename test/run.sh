@@ -23,6 +23,7 @@ if diff -w ../test/expected.txt target/actual.txt
         let ret=255
         exit $ret
 fi
+cp target/*.jar ../
 rm -rf target
 
 cd ../initial
