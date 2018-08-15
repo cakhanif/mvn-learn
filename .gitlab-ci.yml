@@ -16,5 +16,5 @@ mvn:
     - cd initial/
     - mvn package
   after_script:
-    - java -jar complete/gs-maven-0.1.0.jar
+    - java -jar initial/target/gs-maven-0.1.0-shaded.jar
     
