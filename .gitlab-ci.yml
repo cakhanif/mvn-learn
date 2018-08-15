@@ -9,6 +9,6 @@ maven:
   
 
 mvn:
-  stage: production
+  stage: deploy
   script:
     - java -jar complete/gs-maven-0.1.0.jar
