@@ -3,4 +3,4 @@ before_script:
 
 maven:
 	script:
-	- test/run.sh
+		- test/run.sh
