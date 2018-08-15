@@ -10,5 +10,7 @@ maven:
 
 mvn:
   stage: deploy
+  before_script:
+    - mvn package
   script:
     - java -jar complete/gs-maven-0.1.0.jar
