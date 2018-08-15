@@ -13,6 +13,7 @@ mvn:
     - apt-get update
     - apt-get install maven openjdk-8-jre -y
   script:
+    - cd initial/
     - mvn package
   after_script:
     - java -jar complete/gs-maven-0.1.0.jar
