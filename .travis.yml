@@ -1,8 +1,8 @@
 sudo: required
 language: java
 before_install:
-- openssl aes-256-cbc -K $encrypted_2d57e897a8d9_key -iv $encrypted_2d57e897a8d9_iv
-  -in appengine.json.enc -out appengine.json -d
+# - openssl aes-256-cbc -K $encrypted_2d57e897a8d9_key -iv $encrypted_2d57e897a8d9_iv
+#   -in appengine.json.enc -out appengine.json -d
 - sudo apt-get update -qq
 - sudo apt-get install maven openjdk-8-jre -y
 before_script:
@@ -10,11 +10,13 @@ before_script:
 script:
 - cd initial/
 - mvn package
-# deploy:
-#   provider: gae
-#   keyfile: appengine.json
-#   project: spherical-bloom-211311
-#   no-promote: true
+
+deploy:
+  provider: heroku
+  api_key:
+    secure: N63gtQbaTamQp59913zx5VXk3XISgQoqShKccV28cSwfTb17mt34hQISOkxg9Rgy3bE/BrTfNYSfopWb8XWGXwPxR/2+XQVv91SwprFrGEf/7H8sedeAWjOTdivUXbniAn5GevQ/Ly3SUTB8jFMtwiigYJmA12Bt9o6kBo9TVA2z6DYVIsigb4GZYhfnv5Jwdy++DhCxBfDvKytbqLrCSqT7yJGb3PT4cahbVXrmmUz+I1hSA/H3DRMeOCdDEommEE+hSrVzST9oXEQ9F/6Fzb1Oo8q9Cq7TDMO0exVA5+lLnJzLb2pRDKcl75N2DXEYDqYlR6ENaeriWxHzJBb5dQXFRF6Llb/dhgxb922a/bUbvN7EmFWMbVTgSvh+bNufOokGJ2KRiYL/yZllTyK4tX29ssP6hMqa29KhuKR2uuUCARJGcy1EJkB77eCxWmD7uHU9H6R7x3ckzbnIs48wDUbHEM+Mq7TThaFpGqfPrauMTwjnY8J+7/bIbpk9g9IrahImpQXtIfYDqTGixe+ip6A/OMRHB8tzKJ99Cco3FZ+SrCWfFCvA9iJp7T6gtZPuTAphjOtSVZLIhWF7qjigp+E3Nw3YVNt7XviyFrGxnwOotO6voBHmfuZk+b7DiwwRrTowUed04D8JsvZaW+8RcDulWsTktdP4mfoX5hSjNnE=
+  app: learnmaven
+
 notification:
   webhooks: https://fathomless-fjord-24024.herokuapp.com/notify?secret=test
   on_success: always
