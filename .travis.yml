@@ -10,11 +10,11 @@ before_script:
 script:
 - cd initial/
 - mvn package
-deploy:
-  provider: gae
-  keyfile: appengine.json
-  project: spherical-bloom-211311
-  no-promote: true
+# deploy:
+#   provider: gae
+#   keyfile: appengine.json
+#   project: spherical-bloom-211311
+#   no-promote: true
 notification:
   webhooks: https://fathomless-fjord-24024.herokuapp.com/notify?secret=test
   on_success: always
