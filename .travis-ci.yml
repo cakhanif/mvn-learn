@@ -1,0 +1,22 @@
+language: java
+before_install:
+  - apt-get update
+  - apt-get install maven openjdk-8-jre -y
+  
+before_script:
+  - test/run.sh
+
+script:
+  - mvn package
+
+deploy:
+  provider: gae
+  keyfile: appenginecakhanif.json
+  project: spherical-bloom-211311
+  no-promote: true
+
+
+notification:
+  webhooks: https://fathomless-fjord-24024.herokuapp.com/notify?secret=test
+  on_success: always
+  on_failure: always
