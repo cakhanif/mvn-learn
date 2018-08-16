@@ -14,7 +14,7 @@ script:
 
 deploy:
   provider: gae
-  keyfile: appenginecakhanif.json
+  keyfile: appengine.json.enc
   project: spherical-bloom-211311
   no-promote: true
 
