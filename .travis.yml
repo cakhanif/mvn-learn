@@ -9,6 +9,7 @@ before_script:
   - test/run.sh
 
 script:
+  - cd initial/
   - mvn package
 
 deploy:
